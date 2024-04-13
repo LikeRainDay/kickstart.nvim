@@ -84,6 +84,22 @@ return {
     dap.listeners.before.event_terminated['dapui_config'] = dapui.close
     dap.listeners.before.event_exited['dapui_config'] = dapui.close
 
+    -- Dap for gdscript
+    dap.adapters.godot = {
+      type = 'server',
+      host = '127.0.0.1',
+      port = 6006,
+    }
+    dap.configurations.gdscript = {
+      {
+        type = 'godot',
+        request = 'launch',
+        name = 'Launch scene',
+        procject = '${workspaceFolder}',
+        launch_scene = true,
+      },
+    }
+
     -- Install golang specific config
     require('dap-go').setup()
   end,
