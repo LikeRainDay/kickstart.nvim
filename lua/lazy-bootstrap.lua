@@ -11,6 +11,10 @@ vim.opt.rtp:prepend(lazypath)
 
 -- [[ listener godot unix  ]]
 local projectfile = vim.fn.getcwd() .. '/project.godot'
-if projectfile then
+local f = io.open(projectfile, "r")
+if f then
+  io.close(f)
   vim.fn.serverstart './godothost'
+else
+  print("file is not exit, skip godot server start. ^_^")
 end
