@@ -3,6 +3,11 @@
 
 -- NOTE: Set inset model keymap
 vim.keymap.set('i', 'jk', '<Esc>')
+vim.keymap.set('i', '<C-l>', '<Right>')
+vim.keymap.set('i', '<C-h>', '<Left>')
+vim.keymap.set('i', '<C-j>', '<Down>')
+vim.keymap.set('i', '<C-k>', '<Up>')
+vim.keymap.set('i', '<C-d>', '<Delete>')
 
 -- NOTE: Set noraml model keymap
 vim.keymap.set('n','<S-l>', '$')
