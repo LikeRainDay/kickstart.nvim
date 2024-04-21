@@ -9,10 +9,20 @@ vim.opt.rtp:prepend(lazypath)
 
 -- vim: ts=2 sts=2 sw=2 et
 
+local function remove_file(file_path)
+  local success, err_msg = os.remove(file_path)
+  if success then
+      print("File removed successfully.")
+  else
+      print("Failed to remove file: " .. err_msg)
+  end
+end
+
 -- [[ listener godot unix  ]]
 local projectfile = vim.fn.getcwd() .. '/project.godot'
 local f = io.open(projectfile, "r")
 if f then
+  remove_file('./godothost')
   io.close(f)
   vim.fn.serverstart './godothost'
 else
